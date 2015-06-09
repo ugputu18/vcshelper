@@ -1,0 +1,37 @@
+{
+  "name": "vcshelper",
+  "version": "0.0.1",
+  "description": "Multiple repositories helper",
+  "main": "index.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "bin": {
+    "vc": "./bin/vc.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/megaplan/vcshelper.git"
+  },
+  "keywords": [
+    "vcs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/megaplan/vcshelper/issues"
+  },
+  "homepage": "https://github.com/megaplan/vcshelper#readme",
+  "dependencies": {
+    "commander": "2.8.1"
+  },
+  "devDependencies": {
+    "coffee-script": "1.9.3",
+    "gulp": "latest",
+    "gulp-coffee": "latest"
+  },
+  "scripts": {
+    "prepublish": "rm -rf lib && gulp coffee"
+  }
+
+}
