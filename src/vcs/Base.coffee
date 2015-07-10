@@ -34,7 +34,7 @@ module.exports = class Base
   merge: (revision) -> @_doMerge(@_mapRev(revision))
 
 
-  _mapRev: (revision) -> @revMap.revision ? revision
+  _mapRev: (revision) -> @revMap[revision] ? revision
 
 
   _exec: (command) ->
