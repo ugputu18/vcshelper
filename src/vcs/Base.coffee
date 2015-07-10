@@ -31,7 +31,7 @@ module.exports = class Base
   update: (revision) -> @_doUpdate(@_mapRev(revision))
 
 
-  merge: (revision) -> @_doUpdate(@_mapRev(revision))
+  merge: (revision) -> @_doMerge(@_mapRev(revision))
 
 
   _mapRev: (revision) -> @revMap.revision ? revision

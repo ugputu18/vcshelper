@@ -7,7 +7,7 @@ Command is `vc` - acronym of **v**ersion **c**ontrol
 ```
 vc up <rev>
 vc merge <rev>
-vc commit -m "Commit message"
+vc commit "Commit message"
 vc push
 ```
 
