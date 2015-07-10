@@ -17,3 +17,9 @@ module.exports = class Git extends Base
 
 
   _doMerge: (revision) -> @_exec(['git', 'merge', '--no-ff', '--no-commit', revision])
+
+
+  _doStatus: -> @_exec(['git', 'status', '-s'])
+
+
+  _doBranch: -> @_exec(['git', 'rev-parse', '--abbrev-ref', 'HEAD'])

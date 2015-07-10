@@ -51,6 +51,20 @@ module.exports = ->
     vcCollection.pull()
     .catch ExecError, exitProcess
 
+  program
+  .command('status')
+  .alias('st')
+  .description('Status of current repo')
+  .action ->
+    vcCollection.status()
+    .catch ExecError, exitProcess
+
+  program
+  .command('branch')
+  .description('Current used branch in all repos')
+  .action ->
+    vcCollection.branch()
+    .catch ExecError, exitProcess
 
   vcCollection.then (collection) ->
     vcCollection = collection

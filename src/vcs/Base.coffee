@@ -34,6 +34,12 @@ module.exports = class Base
   merge: (revision) -> @_doMerge(@_mapRev(revision))
 
 
+  status: -> @_doStatus()
+
+
+  branch: -> @_doBranch()
+
+
   _mapRev: (revision) -> @revMap[revision] ? revision
 
 
@@ -65,3 +71,9 @@ module.exports = class Base
 
 
   _doMerge: (revision) ->
+
+
+  _doStatus: ->
+
+
+  _doBranch: ->

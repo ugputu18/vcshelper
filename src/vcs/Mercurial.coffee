@@ -17,3 +17,9 @@ module.exports = class Mercurial extends Base
 
 
   _doMerge: (revision) -> @_exec(['hg', 'merge', '-r', revision])
+
+
+  _doStatus: -> @_exec(['hg', 'status'])
+
+
+  _doBranch: -> @_exec(['hg', 'branch'])
