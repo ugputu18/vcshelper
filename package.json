@@ -23,15 +23,18 @@
   },
   "homepage": "https://github.com/megaplan/vcshelper#readme",
   "dependencies": {
-    "commander": "2.8.1"
+    "bluebird": "^2.9.33",
+    "colors": "^1.1.2",
+    "commander": "2.8.1",
+    "lodash": "^3.10.0",
+    "coffee-script": "1.9.3",
+    "passthru": "^0.4.0"
   },
   "devDependencies": {
-    "coffee-script": "1.9.3",
     "gulp": "latest",
     "gulp-coffee": "latest"
   },
   "scripts": {
     "prepublish": "rm -rf lib && gulp coffee"
   }
-
 }

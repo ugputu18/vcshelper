@@ -1,38 +1,57 @@
+CollectionFactory = require('./vcs/CollectionFactory')
+Promise = require('bluebird')
+require('coffee-script/register');
+path = require('path')
+ExecError = require('./vcs/ExecError')
+
+Promise.longStackTraces()
+
 module.exports = ->
 
   program = require('commander')
+
+  vcCollection = CollectionFactory.create(process.cwd(), path.join(process.cwd(), 'vcsfile.coffee'))
+  exitProcess = (e) -> process.exit(e.code)
 
   program
   .command('up [revision]')
   .alias('checkout')
   .description('Checkout revision to working directory')
   .action (revision, options) ->
-    console.log 'vc up', revision, options
+    vcCollection.update(revision)
+    .catch ExecError, exitProcess
 
   program
   .command('merge [revision]')
   .description('Merge with revision')
   .action (revision, options) ->
-    console.log 'vc merge', revision, options
+    vcCollection.merge(revision)
+    .catch ExecError, exitProcess
+
 
   program
   .command('commit <message>')
   .description('Perform commit to all repositories')
   .alias('ci')
   .action (message, options) ->
-    console.log 'commit', message, options
+    vcCollection.commit(message)
+    .catch ExecError, exitProcess
 
   program
   .command('push')
   .description('Push changesets to remote')
   .action (options) ->
-    console.log 'push', options
+    vcCollection.push()
+    .catch ExecError, exitProcess
 
   program
   .command('pull')
   .description('Pull changesets from remote')
   .action (options) ->
-    console.log 'pull', options
+    vcCollection.pull()
+    .catch ExecError, exitProcess
 
 
-  program.parse(process.argv)
+  vcCollection.then (collection) ->
+    vcCollection = collection
+    program.parse(process.argv)
