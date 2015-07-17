@@ -6,7 +6,7 @@ module.exports = class Collection extends Base
 
   constructor: (@handlers) ->
 
-  for methodName in ['commit', 'pull', 'push', 'update', 'merge', 'status', 'branch']
+  for methodName in ['commit', 'pull', 'push', 'update', 'merge', 'status', 'branch', 'id']
     # all do-methods replaced to collection-iterable methods
     do (methodName) =>
       @prototype[methodName] = (args...) ->

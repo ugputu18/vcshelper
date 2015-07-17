@@ -38,6 +38,9 @@ module.exports = class Base
 
 
   branch: -> @_doBranch()
+  
+
+  id: -> @_doBranch()
 
 
   _mapRev: (revision) -> @revMap[revision] ? revision
